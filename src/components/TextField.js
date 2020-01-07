@@ -1,21 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Stack from './Stack';
-
-const FieldLayout = ({children, className, label, labelFor, meta, style}) => {
-  const {error} = meta;
-
-  return (
-    <Stack space={2} className={className} style={style}>
-      <label htmlFor={labelFor} className="font-medium">
-        {label}
-      </label>
-      {children}
-      {error && <p>{error}</p>}
-    </Stack>
-  );
-};
+import FieldLayout from './FieldLayout';
 
 function TextField({
   className,
@@ -53,6 +39,8 @@ TextField.propTypes = {
   className: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.string,
+  layout: PropTypes.elementType,
+  meta: PropTypes.object,
   name: PropTypes.string.isRequired,
   style: PropTypes.object,
   type: PropTypes.oneOf(['text', 'email']),

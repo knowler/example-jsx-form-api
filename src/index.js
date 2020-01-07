@@ -17,13 +17,6 @@ import {
 
 const Button = 'button';
 
-const AlternativeLayout = ({children, label}) => (
-  <Stack space={3} className="bg-blue-400 p-3">
-    <label className="text-xl">{label}</label>
-    {children}
-  </Stack>
-);
-
 function App() {
   return (
     <Form onSubmit={values => console.log(values)} className="flex">
@@ -31,12 +24,6 @@ function App() {
         {/* TextFields */}
         <TextField name="firstName" label="First Name" />
         <TextField name="lastName" label="Last Name" />
-        <TextField
-          type="number"
-          name="money"
-          label="Money"
-          layout={AlternativeLayout}
-        />
 
         {/* TextAreas */}
         <TextArea name="bio" label="Bio" />
