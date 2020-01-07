@@ -2,18 +2,37 @@ import React from 'react';
 
 import Stack from './Stack';
 
-function FieldLayout({children, className, label, labelFor, meta, style}) {
-  const {error} = meta;
+function FieldLayout({
+  isFieldset,
+  children,
+  className,
+  label,
+  labelFor,
+  meta = {},
+  style,
+}) {
+  const Label = isFieldset ? 'label' : 'div';
 
-  return (
+  const layout = (
     <Stack space={2} className={className} style={style}>
-      <label htmlFor={labelFor} className="font-medium">
+      <Label htmlFor={labelFor} className="font-medium">
         {label}
-      </label>
+      </Label>
       {children}
-      {error && <p>{error}</p>}
+      {'error' in meta && <p>{meta.error}</p>}
     </Stack>
   );
+
+  if (isFieldset) {
+    return (
+      <fieldset className={className} style={style}>
+        <legend className="sr-only">{label}</legend>
+        {layout}
+      </fieldset>
+    );
+  }
+
+  return layout;
 }
 
 export default FieldLayout;

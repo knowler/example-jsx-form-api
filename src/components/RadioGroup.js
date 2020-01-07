@@ -1,23 +1,25 @@
 import React, {Children, cloneElement, useMemo} from 'react';
 
-import Stack from './Stack';
+import FieldLayout from './FieldLayout';
 
-function RadioGroup({children, className, label, name, style, ...props}) {
+function RadioGroup({
+  children,
+  className,
+  label,
+  layout: Layout = FieldLayout,
+  name,
+  style,
+  ...props
+}) {
   const childrenWithName = useMemo(
     () => Children.map(children, child => cloneElement(child, {name})),
     [children, name],
   );
 
   return (
-    <fieldset className={className} style={style}>
-      <legend className="sr-only">{label}</legend>
-      <Stack space={2}>
-        <div aria-hidden className="font-medium">
-          {label}
-        </div>
-        <Stack space={1}>{childrenWithName}</Stack>
-      </Stack>
-    </fieldset>
+    <Layout isFieldset className={className} style={style} label={label}>
+      {childrenWithName}
+    </Layout>
   );
 }
 
