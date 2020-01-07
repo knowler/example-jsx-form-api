@@ -12,13 +12,16 @@ function Stack({
 }) {
   const spacedChildren = useMemo(
     () =>
-      Children.map(children, (child, index) =>
-        cloneElement(child, {
-          className: cx(
-            index > 0 ? `mt-${space}` : 'my-0',
-            child.props.className,
-          ),
-        }),
+      Children.map(
+        children,
+        (child, index) =>
+          child &&
+          cloneElement(child, {
+            className: cx(
+              index > 0 ? `mt-${space}` : 'my-0',
+              child.props.className,
+            ),
+          }),
       ),
     [children, space],
   );
