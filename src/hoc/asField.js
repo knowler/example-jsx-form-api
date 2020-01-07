@@ -1,6 +1,9 @@
 import React from 'react';
 import {useField} from 'react-final-form';
 
+/**
+ * This is based on Informed’s `asField` HOC
+ */
 function asField(Component, type) {
   const forwardRef = React.forwardRef(({name, ...props}, userRef) => {
     const {input, meta} = useField(name, {type, ...props});
