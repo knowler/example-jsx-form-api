@@ -22,14 +22,15 @@ function TextArea({
       label={label}
       labelFor={inputId}
       meta={meta}
-    >
-      <textarea
-        id={inputId}
-        name={name}
-        className="form-textarea"
-        {...inputProps}
-      />
-    </Layout>
+      input={
+        <textarea
+          id={inputId}
+          name={name}
+          className="form-textarea"
+          {...inputProps}
+        />
+      }
+    />
   );
 }
 

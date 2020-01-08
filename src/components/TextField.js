@@ -23,15 +23,16 @@ function TextField({
       label={label}
       labelFor={inputId}
       meta={meta}
-    >
-      <input
-        id={inputId}
-        name={name}
-        type={type}
-        className="form-input"
-        {...inputProps}
-      />
-    </Layout>
+      input={
+        <input
+          id={inputId}
+          name={name}
+          type={type}
+          className="form-input"
+          {...inputProps}
+        />
+      }
+    />
   );
 }
 

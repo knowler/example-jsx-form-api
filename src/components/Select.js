@@ -22,14 +22,15 @@ function Select({
       label={label}
       labelFor={inputId}
       meta={meta}
-    >
-      <select
-        id={inputId}
-        name={name}
-        className="form-select"
-        {...inputProps}
-      />
-    </Layout>
+      input={
+        <select
+          id={inputId}
+          name={name}
+          className="form-select"
+          {...inputProps}
+        />
+      }
+    />
   );
 }
 

@@ -20,9 +20,13 @@ function CheckboxGroup({
   );
 
   return (
-    <Layout isFieldset className={className} style={style} label={label}>
-      {childrenWithName}
-    </Layout>
+    <Layout
+      isFieldset
+      className={className}
+      style={style}
+      label={label}
+      input={childrenWithName}
+    />
   );
 }
 
